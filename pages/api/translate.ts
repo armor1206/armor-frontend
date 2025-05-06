@@ -15,7 +15,7 @@ headers: {
 Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
 },
 body: JSON.stringify({
-model: "gpt-4",
+model: "gpt-3.5-turbo",
 messages: [
 {
 role: "system",
@@ -30,7 +30,7 @@ content: message,
 });
 
 const data = await response.json();
-console.log("OpenAI response: ", JSON.stringify(data));
+console.log(">>> OpenAI API хариу:", JSON.stringify(data));
 const translated = data.choices?.[0]?.message?.content || "Орчуулга олдсонгүй.";
 
 res.status(200).json({ result: translated });
