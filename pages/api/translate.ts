@@ -30,6 +30,7 @@ content: message,
 });
 
 const data = await response.json();
+console.log("OpenAI response: ", JSON.stringify(data));
 const translated = data.choices?.[0]?.message?.content || "Орчуулга олдсонгүй.";
 
 res.status(200).json({ result: translated });
